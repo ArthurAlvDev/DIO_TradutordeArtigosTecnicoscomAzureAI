@@ -12,10 +12,8 @@ class Program
 
     static async Task Main(string[] args)
     {
-        // Caminho do documento
         string filePath = "caminho/do/seu/documento.txt"; 
 
-        // Ler o conteúdo do arquivo
         string textToTranslate = await ReadDocument(filePath);
         
         string targetLanguage = "pt"; 
@@ -31,12 +29,10 @@ class Program
         }
     }
 
-    // Método para ler o conteúdo de um documento de texto
     static async Task<string> ReadDocument(string filePath)
     {
         try
         {
-            // Verifica se o arquivo existe
             if (File.Exists(filePath))
             {
                 return await File.ReadAllTextAsync(filePath);
@@ -54,7 +50,6 @@ class Program
         }
     }
 
-    // Método para traduzir o texto usando a API do Azure Translator
     static async Task<string> TranslateText(string text, string language)
     {
         string route = $"/translate?api-version=3.0&to={language}";
